@@ -130,7 +130,27 @@ public class ReportAction extends ActionBase {
                  putSessionScope(AttributeConst.FLUSH,MessageConst.I_REGISTERED.getMessage());
                  //一覧画面にリダイレクト
                  redirect(ForwardConst.ACT_REP,ForwardConst.CMD_INDEX);
-             }
+             }}}
+
+
+        /**
+         * 詳細画面を表示する
+         * @throws ServletExcption
+         * @throws IOException
+         */
+
+        public void show() throws ServletException, IOException {
+            //idを条件に日報データを取得する
+            ReportView rv = service.findOne(toNumber(getRequestParam(AttributeConst.REP_ID)));
+       if (rv==null) {
+           //該当の日報データが存在しない場合はエラー画面を表示
+           forward(ForwardConst.FW_ERR_UNKNOWN);
+
+       }else {
+           putRequestScope(AttributeConst.REPORT,rv);//取得した日報データ
+           //詳細画面を表示
+           forward(ForwardConst.FW_REP_SHOW);
+       }
         }
     }
 
@@ -140,4 +160,16 @@ public class ReportAction extends ActionBase {
 
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
