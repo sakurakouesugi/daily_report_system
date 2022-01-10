@@ -152,10 +152,7 @@ public class ReportAction extends ActionBase {
            forward(ForwardConst.FW_REP_SHOW);
        }}
        /**
-        * 編集画面を表示する
-        * @throws ServletException
-        * @throws IOException
-        */
+
 
        /**
         * 編集画面を表示する
@@ -226,24 +223,3 @@ public class ReportAction extends ActionBase {
            }
        }}
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

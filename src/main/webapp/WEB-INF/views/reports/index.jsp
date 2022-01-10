@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="constants.ForwardConst" %>
  <c:set var="actRep" value="${ForwardConst.ACT_REP.getValue() }"/>
- <c:set var="commIdx" value="${ForwardConst.CMD_INDNEX.getValue()}"/>
+ <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}"/>
  <c:set var="commShow" value="${ForwardConst.CMD_SHOW.getValue()}" />
 <c:set var="commNew" value="${ForwardConst.CMD_NEW.getValue()}" />
 
@@ -53,12 +53,3 @@
 
     </c:param>
 </c:import>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>Insert title here</title>
-    </head>
-    <body>
-
-    </body>
-</html>

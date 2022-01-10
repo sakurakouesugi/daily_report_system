@@ -7,7 +7,6 @@ import models.Report;
 
 /**
  * 日報データのDTOモデル　Viewモデルの返還を行うクラス
- * @author cocb1
  *
  */
 public class ReportConverter {
