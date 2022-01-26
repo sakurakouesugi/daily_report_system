@@ -9,7 +9,7 @@ import lombok.Setter;
 
 
 /**
- * 従業員情報についての画面の入力値・出力地を扱うiewモデル
+ * 従業員情報についての画面の入力値・出力地を扱うviewモデル
  * @author cocb1
  *
  */

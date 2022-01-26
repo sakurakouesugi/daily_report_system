@@ -14,7 +14,6 @@ import constants.JpaConst;
 import constants.MessageConst;
 import services.ReportService;
 
-
 /**
  * 日報に関する処理を行うActionクラス
  *
@@ -151,7 +150,10 @@ public class ReportAction extends ActionBase {
            //詳細画面を表示
            forward(ForwardConst.FW_REP_SHOW);
        }}
-       /**
+
+
+
+
 
 
        /**
@@ -222,4 +224,6 @@ public class ReportAction extends ActionBase {
                redirect(ForwardConst.ACT_REP, ForwardConst.CMD_INDEX);
            }
        }}
-        }
+
+
+ }

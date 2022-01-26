@@ -12,7 +12,7 @@ public enum ForwardConst{
     ACT_EMP("Employee"),
     ACT_REP("Report"),
     ACT_AUTH("Auth"),
-
+    ACT_FAV("Favorite"),
     //command
     CMD("command"),
     CMD_NONE(""),
@@ -26,7 +26,7 @@ public enum ForwardConst{
     CMD_EDIT("edit"),
     CMD_UPDATE("update"),
     CMD_DESTROY("destroy"),
-
+    CMD_FAV("fav"),
     //jsp
     FW_ERR_UNKNOWN("error/unknown"),
     FW_TOP_INDEX("topPage/index"),

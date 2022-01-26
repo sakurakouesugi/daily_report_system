@@ -45,6 +45,7 @@ public class ReportConverter {
                 r.getContent(),
                 r.getCreatedAt(),
                 r.getUpdatedAt());
+
     }
 
     /**

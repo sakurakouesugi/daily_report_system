@@ -1,4 +1,5 @@
 package actions.views;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -16,9 +17,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReportView {
-/**
- * id
- */
+    /**
+     * id
+     */
 
     private Integer id;
     /**
@@ -53,4 +54,6 @@ public class ReportView {
      * 更新日時
      */
     private LocalDateTime updatedAt;
+
+
 }

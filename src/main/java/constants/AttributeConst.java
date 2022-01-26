@@ -1,7 +1,7 @@
 package constants;
 
 /**
-* 画面の項目値等を定義するnumクラス
+* 画面の項目値等を定義するEnumクラス
 *
 */
 public enum AttributeConst{
@@ -47,8 +47,8 @@ public enum AttributeConst{
     REP_ID("id"),
     REP_DATE("report_date"),
     REP_TITLE("title"),
-    REP_CONTENT("content");
-
+    REP_CONTENT("content"),
+    FAV_REPID("rep_id");
     private final String text;
     private final Integer i;
 

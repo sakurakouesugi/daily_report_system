@@ -1,7 +1,7 @@
 package constants;
 
 /**
-*各出力メッセージを定義するEnuクラス
+*各出力メッセージを定義するEnumクラス
 *
 */
 
@@ -16,6 +16,9 @@ public enum MessageConst{
     I_UPDATED("更新が完了しました。"),
     I_DELETED("削除が完了しました。"),
 
+
+    //いいね！登録
+    I_ADDEDFAVORITE("いいね！登録しました"),
     //バリデーション
     E_NONAME("氏名を入力してください。"),
     E_NOPASSWORD("パスワードを入力してください。"),

@@ -38,7 +38,8 @@ public interface JpaConst{
     String REP_COL_CONTENT = "content"; //日報の内容
     String REP_COL_CREATED_AT = "created_at"; //登録日時
     String REP_COL_UPDATED_AT = "updated_at"; //更新日時
-
+    String REP_COL_FAV = "report_fav";//お気に入り登録された情報
+    String FAV_COL_REPID = "report_id";//日報id
     //Entity名
     String ENTITY_EMP = "employee"; //従業員
     String ENTITY_REP = "report"; //日報
@@ -47,6 +48,11 @@ public interface JpaConst{
     String JPQL_PARM_CODE = "code"; //社員番号
     String JPQL_PARM_PASSWORD = "password"; //パスワード
     String JPQL_PARM_EMPLOYEE = "employee"; //従業員
+    String JPQL_PARM_REP_ID = "rep_id";
+  //お気に入りテーブル
+    String TABLE_FAV = "favorite";
+    //お気に入りテーブルカラム
+
 
     //NamedQueryの nameとquery
     //全ての従業員をidの降順に取得する
@@ -73,6 +79,9 @@ public interface JpaConst{
     //指定した従業員が作成した日報の件数を取得する
     String Q_REP_COUNT_ALL_MINE = ENTITY_REP + ".countAllMine";
     String Q_REP_COUNT_ALL_MINE_DEF = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE;
+   //社員IDと日報IDを条件にお気に入り登録された日報を取得
+    String Q_FAV_GET_BY_EMPLOYEE_AND_REP_ID =".getByEmployeeAndRep_id";
 
 }
+
 
