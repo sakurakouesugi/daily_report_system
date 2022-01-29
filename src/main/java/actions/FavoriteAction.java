@@ -1,9 +1,11 @@
 package actions;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 
-import actions.views.ReportView;
+import actions.views.EmployeeView;
+import actions.views.FavoriteView;
 import constants.AttributeConst;
 import constants.ForwardConst;
 import constants.MessageConst;
@@ -26,26 +28,27 @@ public class FavoriteAction extends ActionBase{
 
 
 
-        String employee = getRequestParam(AttributeConst.LOGIN_EMP);
-        String rep_id = getRequestParam(AttributeConst. FAV_REPID);
-        Boolean addedToFavorite = service.favoriteStamp(employee, rep_id);
+        EmployeeView ev = (EmployeeView) getSessionScope(AttributeConst.LOGIN_EMP);
+        //TODO 不要か見直し　　　　String rep_id = getRequestParam(AttributeConst. REP_ID);
+        FavoriteView fv = new FavoriteView(
+                ev,
+                null);
+        //いいねテーブルへの追加
+       List<String> addFavorite = service.create(fv);
+      if(addFavorite !=null) {
+          favdel();
+      }
 
-        if (addedToFavorite)
-            //セッションにログイン完了のフラッシュメッセージを設定
+            //セッションにフラッシュメッセージを設定
             putSessionScope(AttributeConst.FLUSH, MessageConst. I_ADDEDFAVORITE.getMessage());
 
-       }
-    public void show() throws ServletException, IOException {
-        //idを条件に日報データを取得する
-        ReportView rv = service.findOne(toNumber(getRequestParam(AttributeConst.REP_ID)));
-   if (rv==null) {
-       //該当の日報データが存在しない場合はエラー画面を表示
-       forward(ForwardConst.FW_ERR_UNKNOWN);
 
-   }else {
-       putRequestScope(AttributeConst.REPORT,rv);//取得した日報データ
-       //詳細画面を表示
-       forward(ForwardConst.FW_REP_SHOW);}}
+
+
+        forward(ForwardConst.FW_REP_SHOW);
+    }
+
+
 
 
 
@@ -57,7 +60,8 @@ public class FavoriteAction extends ActionBase{
      */
  public void favdel()throws ServletException,IOException{
      //TODO 解除　見直し
-        // service.favdel(toNumber(getRequestParam(AttributeConst.EMP_ID)))
+         service.favdel(toNumber(getRequestParam(AttributeConst.EMP_ID)));
+         redirect(ForwardConst.ACT_EMP, ForwardConst.CMD_SHOW);
  }
     @Override
     public void process() throws ServletException, IOException {

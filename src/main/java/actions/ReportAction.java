@@ -98,7 +98,7 @@ public class ReportAction extends ActionBase {
                  day = LocalDate.parse(getRequestParam(AttributeConst.REP_DATE));
              }
 
-             //せっしょんからログイン中の従業員情報を取得
+             //セッションからログイン中の従業員情報を取得
              EmployeeView ev = (EmployeeView) getSessionScope(AttributeConst.LOGIN_EMP);
            //パラメータの値をもとに日報情報のインスタンスを作成する
              ReportView rv = new ReportView(

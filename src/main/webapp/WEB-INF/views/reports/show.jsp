@@ -8,7 +8,7 @@
 <c:set var="actRep" value="${ForwardConst.ACT_REP.getValue()}" />
 <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
 <c:set var="commEdt" value="${ForwardConst.CMD_EDIT.getValue()}" />
-<c:set var="actFav" value="${ForwardConst.ACT_FAV.getValue()}"/>
+<c:set var="actFav" value="${ForwardConst.ACT_FAV.getValue()}" />
 <c:set var="commFav" value="${ForwardConst.CMD_FAV.getValue()}" />
 <c:import url="/WEB-INF/views/layout/app.jsp">
   <c:param name="content">
@@ -52,30 +52,34 @@
       </tbody>
     </table>
 
-    <c:choose>
-    <c:when test="${sessionScope.login_employee.id != report.employee.id}">
-      <form method="POST"
-        action="<c:url value='?action=${actFav}&command=${commFav}&id=${report.id }' />">
 
-        <p>
-          <input type="image" src="http://main/webapp/images/fav1.jpeg" alt="お気に入りに登録">
-        </p>
-        <p>
-          <input type="image" src="../../../../images/fav2.jpeg" alt="お気に入りに登録済">
+    <form method="POST"
+      action="<c:url value='?action=${actFav}&command=${commFav}&id=${report.id}' />">
+     <!--   <c:choose> -->
+       <!--  <c:when test="${report.id != favorite.rep_id }"> -->
+          <p>
+            <input type="image" src="../../../images/fav1.jpeg" alt="お気に入りに登録">
+          </p>
+       <!--   </c:when> -->
+     <!--    <c:otherwise > -->
+          <p>
+            <input type="image" src="../../../../images/fav2.jpeg"
+              alt="お気に入りに登録済">
 
-        </p>
-      </form>
-      </c:when>
+</p>
+    </form>
+
+    <c:if test="${sessionScope.login_employee.id == report.employee.id}">
       <p>
         <a
           href="<c:url value='?action=${actRep}&command=${commEdt}&id=${report.id}' />">この日報を編集する</a>
       </p>
-        <c:otherwise>
+    </c:if>
 
     <p>
       <a href="<c:url value='?action=${actRep}&command=${commIdx}' />">一覧に戻る</a>
     </p>
-    </c:otherwise>
-    </c:choose>
+
+
   </c:param>
 </c:import>

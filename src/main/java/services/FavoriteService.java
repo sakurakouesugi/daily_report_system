@@ -1,22 +1,42 @@
 package services;
 
+import java.util.List;
+
 import javax.persistence.NoResultException;
 
 import actions.views.FavoriteConverter;
 import actions.views.FavoriteView;
+import actions.views.ReportConverter;
+import actions.views.ReportView;
 import constants.JpaConst;
 import models.Favorite;
+import models.Report;
 
 
 
 
 public class FavoriteService extends ServiceBase {
+
+
+
+
+           //TODO　見直し  いいね！登録処理
+
+public List<String>create(FavoriteView fv) {
+
+   createInternal(fv);
+    return null ;
+    }
+
+
+
+
    /**
     * @param employee 社員ID
     * @param rep_id 日報ID
     * @return 取得データのインスタンス 取得できない場合null
     */
-   public FavoriteView findOne(String employee, String rep_id) {
+   public FavoriteView findIt(String employee, String rep_id) {
        Favorite  f = null;
        try {
 
@@ -46,7 +66,7 @@ public class FavoriteService extends ServiceBase {
 
         boolean addedToFavorite = false;
         if (employee != null && !employee.equals("") && rep_id != null && !rep_id.equals("")) {
-            FavoriteView fv = findOne(employee,rep_id);
+            FavoriteView fv = findIt(employee,rep_id);
 
             if (fv != null && fv.getRep_id() != null) {
 
@@ -58,7 +78,24 @@ public class FavoriteService extends ServiceBase {
         //認証結果を返却する
         return addedToFavorite;
     }
+    public ReportView findOne(int id) {
+        return ReportConverter.toView(findOneInternal(id));
 
+    }
+
+    private Report findOneInternal(int id) {
+        return em.find(Report.class, id);
+    }
+    /**
+     * FAVテーブルへの登録
+     * @param rv
+     */
+    private void createInternal(FavoriteView fv) {
+
+        em.getTransaction().begin();
+        em.persist(FavoriteConverter.toModel(fv));
+        em.getTransaction().commit();
+    }
 /**
  * いいね！の解除
  */
