@@ -25,10 +25,11 @@ public class FavoriteService extends ServiceBase {
 public List<String>create(FavoriteView fv) {
 
    createInternal(fv);
-    return null ;
-    }
+   return  null;
+   }
 
-
+//public List<String>create = new ArrayList<String>();
+ //createInternal(fv);
 
 
    /**
@@ -36,7 +37,7 @@ public List<String>create(FavoriteView fv) {
     * @param rep_id 日報ID
     * @return 取得データのインスタンス 取得できない場合null
     */
-   public FavoriteView findIt(String employee, String rep_id) {
+   public FavoriteView findIt(String employee,String rep_id) {
        Favorite  f = null;
        try {
 

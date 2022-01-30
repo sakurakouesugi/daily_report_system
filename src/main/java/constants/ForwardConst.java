@@ -26,7 +26,7 @@ public enum ForwardConst{
     CMD_EDIT("edit"),
     CMD_UPDATE("update"),
     CMD_DESTROY("destroy"),
-    CMD_FAV("fav"),
+    CMD_FAV("favorite"),
     //jsp
     FW_ERR_UNKNOWN("error/unknown"),
     FW_TOP_INDEX("topPage/index"),

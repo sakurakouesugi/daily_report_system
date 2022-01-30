@@ -55,18 +55,20 @@
 
     <form method="POST"
       action="<c:url value='?action=${actFav}&command=${commFav}&id=${report.id}' />">
-     <!--   <c:choose> -->
-       <!--  <c:when test="${report.id != favorite.rep_id }"> -->
+      <c:choose>
+        <c:when test="${report.id!=favorite.rep_id }">
           <p>
-            <input type="image" src="../../../images/fav1.jpeg" alt="お気に入りに登録">
-          </p>
-       <!--   </c:when> -->
-     <!--    <c:otherwise > -->
+            <input type="image" src="< '/images/fav1.jpeg1>"
+              alt="いいね！登録">
+          <p>いいね！する</p>
+        </c:when>
+        <c:otherwise>
           <p>
-            <input type="image" src="../../../../images/fav2.jpeg"
-              alt="お気に入りに登録済">
-
-</p>
+            <input type="image" src="<c:url value='/images/fav2.jpeg'/>"
+              alt="いいね！登録済">
+          <p>いいね！をはずす</p>
+        </c:otherwise>
+      </c:choose>
     </form>
 
     <c:if test="${sessionScope.login_employee.id == report.employee.id}">

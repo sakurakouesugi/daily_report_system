@@ -12,7 +12,7 @@ import utils.DBUtil;
  */
 public class ServiceBase {
 /**
- * EntityManagerいんすたんす
+ * EntityManagerインスタンス
  */
     protected EntityManager em= DBUtil.createEntityManager();
     /**
